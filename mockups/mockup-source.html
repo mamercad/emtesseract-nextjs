@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMTesseract - Redesign Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --background: #0a0a0f;
+            --surface: rgba(255, 255, 255, 0.03);
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+            --glow: rgba(99, 102, 241, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .tesseract-logo {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .tesseract-cube {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 40px var(--glow);
+        }
+
+        .cube-outer {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .cube-inner {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg) scale(0.6);
+            border-color: var(--secondary);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px var(--glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--glow);
+        }
+
+        /* Section Headers */
+        .section {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Glass-morphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            text-align: center;
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px var(--glow);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .game-card {
+            position: relative;
+        }
+
+        .game-card .card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: -1px;
+        }
+
+        .game-card .card-content {
+            padding-top: 2rem;
+        }
+
+        .game-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .game-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .game-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .game-status.in-progress {
+            background: rgba(251, 191, 36, 0.1);
+            color: #fbbf24;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(255, 255, 255, 0.02);
+            margin: 4rem 0;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="logo">
+                <div class="tesseract-logo">
+                    <div class="tesseract-cube cube-outer"></div>
+                    <div class="tesseract-cube cube-inner"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>EMTesseract</h1>
+                <p class="subtitle">Crafting immersive digital experiences through code</p>
+                <a href="#games" class="cta-button">Explore Games</a>
+            </div>
+            <div class="scroll-indicator">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="7 13 12 18 17 13"></polyline>
+                    <polyline points="7 6 12 11 17 6"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About the Vision</h2>
+                <p>Building innovative game experiences with modern technology and creative storytelling</p>
+            </div>
+            <div class="about-grid">
+                <div class="glass-card about-card">
+                    <div class="about-icon">🎮</div>
+                    <h3>Game Development</h3>
+                    <p>Creating engaging gameplay mechanics and immersive worlds using cutting-edge technologies and frameworks.</p>
+                </div>
+                <div class="glass-card about-card">
+                    <div class="about-icon">🎨</div>
+                    <h3>Visual Design</h3>
+                    <p>Crafting beautiful interfaces and memorable visual experiences that captivate and inspire players.</p>
+                </div>
+                <div class="glass-card about-card">
+                    <div class="about-icon">⚡</div>
+                    <h3>Performance</h3>
+                    <p>Optimizing every aspect for smooth, responsive gameplay across all platforms and devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Games</h2>
+                <p>Explore our collection of interactive experiences</p>
+            </div>
+            <div class="games-grid">
+                <div class="glass-card game-card">
+                    <div class="card-image">🎯</div>
+                    <div class="card-content">
+                        <h3>Dart Tournament</h3>
+                        <p>A competitive dart-throwing simulation with realistic physics and engaging multiplayer gameplay.</p>
+                        <span class="game-status">Available Now</span>
+                    </div>
+                </div>
+                <div class="glass-card game-card">
+                    <div class="card-image">♟️</div>
+                    <div class="card-content">
+                        <h3>Strategy Quest</h3>
+                        <p>Turn-based strategy game combining tactical decision-making with rich narrative elements.</p>
+                        <span class="game-status in-progress">In Development</span>
+                    </div>
+                </div>
+                <div class="glass-card game-card">
+                    <div class="card-image">🌌</div>
+                    <div class="card-content">
+                        <h3>Space Explorer</h3>
+                        <p>Explore vast galaxies, discover new worlds, and uncover ancient mysteries in this space adventure.</p>
+                        <span class="game-status in-progress">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-header">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions or want to collaborate? Reach out through any of these channels</p>
+                </div>
+                <div class="contact-links">
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">💬</span>
+                        <span>Discord</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">🐦</span>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EMTesseract. Crafted with passion and code.</p>
+        </div>
+    </footer>
+</body>
+</html>

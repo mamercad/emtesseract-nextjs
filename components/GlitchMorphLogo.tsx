@@ -17,21 +17,21 @@ export default function GlitchMorphLogo() {
     return () => clearInterval(morphInterval);
   }, []);
 
-  // Glitch effect - random bursts
+  // Glitch effect - random bursts (reduced frequency for cleaner look)
   useEffect(() => {
     const glitchInterval = setInterval(() => {
-      const shouldGlitch = Math.random() > 0.7;
+      const shouldGlitch = Math.random() > 0.85; // Reduced from 0.7 to 0.85 (15% chance instead of 30%)
       if (shouldGlitch) {
-        setGlitchIntensity(Math.random());
+        setGlitchIntensity(Math.random() * 0.8); // Slightly reduced intensity
         setGlitchOffset({
-          x: (Math.random() - 0.5) * 12,
-          y: (Math.random() - 0.5) * 8
+          x: (Math.random() - 0.5) * 10, // Reduced from 12 to 10
+          y: (Math.random() - 0.5) * 6   // Reduced from 8 to 6
         });
       } else {
         setGlitchIntensity(0);
         setGlitchOffset({ x: 0, y: 0 });
       }
-    }, 100);
+    }, 120); // Slightly slower interval (was 100ms)
     return () => clearInterval(glitchInterval);
   }, []);
 
