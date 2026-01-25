@@ -135,7 +135,7 @@ export default function Home() {
 
       <footer>
         <div className="container">
-          <p>&copy; 2025 EMTesseract. Crafted with passion and code.</p>
+          <p>&copy; 2026 EMTesseract. Crafted with passion and code.</p>
         </div>
       </footer>
     </>
