@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- emtesseract Horizontal Lockup - Dark Background with Glitch -->
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="400" height="100" fill="#0A0A0A" rx="8"/>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(10, 10) scale(0.8)">
+    <!-- Cyan offset layer -->
+    <g transform="translate(2, 1)" opacity="0.6">
+      <rect x="15" y="15" width="35" height="50" fill="none" stroke="#00FFFF" stroke-width="2.5"/>
+      <rect x="25" y="25" width="30" height="35" fill="none" stroke="#00FFFF" stroke-width="2"/>
+      <line x1="15" y1="15" x2="25" y2="25" stroke="#00FFFF" stroke-width="1.5"/>
+      <line x1="50" y1="15" x2="55" y2="25" stroke="#00FFFF" stroke-width="1.5"/>
+      <line x1="15" y1="65" x2="25" y2="60" stroke="#00FFFF" stroke-width="1.5"/>
+      <line x1="50" y1="65" x2="55" y2="60" stroke="#00FFFF" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Magenta offset layer -->
+    <g transform="translate(-2, -1)" opacity="0.6">
+      <rect x="15" y="15" width="35" height="50" fill="none" stroke="#FF00FF" stroke-width="2.5"/>
+      <rect x="25" y="25" width="30" height="35" fill="none" stroke="#FF00FF" stroke-width="2"/>
+      <line x1="15" y1="15" x2="25" y2="25" stroke="#FF00FF" stroke-width="1.5"/>
+      <line x1="50" y1="15" x2="55" y2="25" stroke="#FF00FF" stroke-width="1.5"/>
+      <line x1="15" y1="65" x2="25" y2="60" stroke="#FF00FF" stroke-width="1.5"/>
+      <line x1="50" y1="65" x2="55" y2="60" stroke="#FF00FF" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Main white layer -->
+    <g>
+      <rect x="15" y="15" width="35" height="50" fill="none" stroke="white" stroke-width="2.5"/>
+      <rect x="25" y="25" width="30" height="35" fill="none" stroke="white" stroke-width="2"/>
+      <line x1="15" y1="15" x2="25" y2="25" stroke="white" stroke-width="1.5"/>
+      <line x1="50" y1="15" x2="55" y2="25" stroke="white" stroke-width="1.5"/>
+      <line x1="15" y1="65" x2="25" y2="60" stroke="white" stroke-width="1.5"/>
+      <line x1="50" y1="65" x2="55" y2="60" stroke="white" stroke-width="1.5"/>
+      
+      <circle cx="15" cy="15" r="2.5" fill="white"/>
+      <circle cx="50" cy="15" r="2.5" fill="white"/>
+      <circle cx="15" cy="65" r="2.5" fill="white"/>
+      <circle cx="50" cy="65" r="2.5" fill="white"/>
+      <circle cx="25" cy="25" r="2.5" fill="white"/>
+      <circle cx="55" cy="25" r="2.5" fill="white"/>
+      <circle cx="25" cy="60" r="2.5" fill="white"/>
+      <circle cx="55" cy="60" r="2.5" fill="white"/>
+    </g>
+  </g>
+  
+  <!-- Wordmark with glitch -->
+  <g transform="translate(90, 0)">
+    <!-- Cyan -->
+    <text x="2" y="59" font-family="monospace" font-size="28" font-weight="bold" fill="#00FFFF" opacity="0.6" letter-spacing="2">emtesseract</text>
+    <!-- Magenta -->
+    <text x="-2" y="55" font-family="monospace" font-size="28" font-weight="bold" fill="#FF00FF" opacity="0.6" letter-spacing="2">emtesseract</text>
+    <!-- White -->
+    <text x="0" y="57" font-family="monospace" font-size="28" font-weight="bold" fill="white" letter-spacing="2">emtesseract</text>
+  </g>
+</svg>

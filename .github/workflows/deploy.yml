@@ -43,3 +43,52 @@ jobs:
           echo "✅ Deployment complete!"
           echo "🌐 Site: https://emtesseract.pages.dev"
           echo "🎨 Custom domain: https://emtesseract.com"
+      
+      - name: Discord Notification
+        if: always()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            STATUS="${{ job.status }}"
+            if [ "$STATUS" == "success" ]; then
+              COLOR="3066993"
+              EMOJI="✅"
+              STATUS_TEXT="Deployment Successful"
+            else
+              COLOR="15158332"
+              EMOJI="❌"
+              STATUS_TEXT="Deployment Failed"
+            fi
+            
+            curl -H "Content-Type: application/json" \
+              -d "{
+                \"embeds\": [{
+                  \"title\": \"$EMOJI emtesseract Website Deployment\",
+                  \"description\": \"**Status:** $STATUS_TEXT\",
+                  \"color\": $COLOR,
+                  \"fields\": [
+                    {
+                      \"name\": \"Branch\",
+                      \"value\": \"\`${{ github.ref_name }}\`\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"Commit\",
+                      \"value\": \"\`${{ github.sha }}\`\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"Website\",
+                      \"value\": \"[emtesseract.com](https://emtesseract.com)\",
+                      \"inline\": false
+                    }
+                  ],
+                  \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\",
+                  \"footer\": {
+                    \"text\": \"Cloudflare Pages\"
+                  }
+                }]
+              }" \
+              "$DISCORD_WEBHOOK"
+          fi

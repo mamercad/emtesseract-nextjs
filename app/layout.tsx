@@ -14,7 +14,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'emtesseract - Family Game Development Company',
-  description: 'emtesseract is a family-run game development studio creating engaging, innovative games together.',
+  description: 'emtesseract is a family-run game development studio creating engaging, innovative games together. Four dimensions. One vision.',
+  icons: {
+    icon: '/brand/logo-primary-dark.svg',
+    apple: '/brand/logo-primary-dark.svg',
+  },
 };
 
 export default function RootLayout({

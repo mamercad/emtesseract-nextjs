@@ -192,7 +192,11 @@ export default function Home() {
         <footer className="py-12 border-t border-white/10 mt-16">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-3">
-              <div className="w-8 h-8 border-2 border-cyan rounded" />
+              <img 
+                src="/brand/m-mark-dark.svg" 
+                alt="emtesseract logo" 
+                className="w-10 h-10"
+              />
               <span className="text-2xl font-mono font-bold">emtesseract</span>
             </div>
             <p className="text-cyan font-mono">M⁴ — Four dimensions, one family</p>
