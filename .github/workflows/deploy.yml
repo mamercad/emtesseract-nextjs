@@ -50,27 +50,12 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           status: ${{ job.status }}
-          title: "✅ emtesseract Website Deployment"
-          description: "**Status:** Deployment Successful"
+          title: "✅ emtesseract Website Deployed"
+          description: |
+            **Branch:** `${{ github.ref_name }}`
+            **Commit:** `${{ github.sha }}`
+            **Website:** [emtesseract.com](https://emtesseract.com)
           color: 0x2eb886
-          fields: |
-            [
-              {
-                "name": "Branch",
-                "value": "`${{ github.ref_name }}`",
-                "inline": true
-              },
-              {
-                "name": "Commit",
-                "value": "`${{ github.sha }}`",
-                "inline": true
-              },
-              {
-                "name": "Website",
-                "value": "[emtesseract.com](https://emtesseract.com)"
-              }
-            ]
-          footer: "Cloudflare Pages"
       
       - name: Discord Notification (Failure)
         if: failure()
@@ -78,24 +63,9 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           status: ${{ job.status }}
-          title: "❌ emtesseract Website Deployment"
-          description: "**Status:** Deployment Failed"
+          title: "❌ emtesseract Deployment Failed"
+          description: |
+            **Branch:** `${{ github.ref_name }}`
+            **Commit:** `${{ github.sha }}`
+            **Logs:** [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           color: 0xe74c3c
-          fields: |
-            [
-              {
-                "name": "Branch",
-                "value": "`${{ github.ref_name }}`",
-                "inline": true
-              },
-              {
-                "name": "Commit",
-                "value": "`${{ github.sha }}`",
-                "inline": true
-              },
-              {
-                "name": "Run",
-                "value": "[View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-              }
-            ]
-          footer: "Cloudflare Pages"
