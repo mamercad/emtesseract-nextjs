@@ -59,6 +59,20 @@ export default function Home() {
           </div>
           <div className="games-grid">
             <div className="glass-card game-card">
+              <div className="card-image">🎅</div>
+              <div className="card-content">
+                <h3>Santa&apos;s Present Bounce</h3>
+                <p>Help Santa deliver presents! Bounce gifts into chimneys using your paddle. Move with mouse or touch controls. Don&apos;t miss more than 5 presents!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Web</span>
+                  <span className="game-tag">Arcade</span>
+                  <span className="game-tag">Casual</span>
+                </div>
+                <span className="game-status">Available Now</span>
+                <a href="/santa-bounce" className="play-button">Play Now</a>
+              </div>
+            </div>
+            <div className="glass-card game-card">
               <div className="card-image">🧊</div>
               <div className="card-content">
                 <h3>BrainFreeze</h3>
