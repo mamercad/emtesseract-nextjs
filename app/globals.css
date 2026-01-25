@@ -267,6 +267,24 @@ body::before {
   line-height: 1.7;
 }
 
+.game-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.game-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .game-status {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -275,11 +293,36 @@ body::before {
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .game-status.in-progress {
   background: rgba(251, 191, 36, 0.1);
   color: #fbbf24;
+}
+
+.game-status.paused {
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+}
+
+.play-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--glow);
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--glow);
 }
 
 /* Contact Section */

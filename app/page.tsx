@@ -60,27 +60,43 @@ export default function Home() {
           </div>
           <div className="games-grid">
             <div className="glass-card game-card">
-              <div className="card-image">🎯</div>
+              <div className="card-image">🧊</div>
               <div className="card-content">
-                <h3>Dart Tournament</h3>
-                <p>A competitive dart-throwing simulation with realistic physics and engaging multiplayer gameplay.</p>
+                <h3>BrainFreeze</h3>
+                <p>Fast-paced trivia game that challenges your knowledge across multiple categories. Test yourself with 10 questions and compete for high scores!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Web</span>
+                  <span className="game-tag">Trivia</span>
+                  <span className="game-tag">Puzzle</span>
+                </div>
                 <span className="game-status">Available Now</span>
+                <a href="https://mamercad.github.io/BrainFreeze" target="_blank" rel="noopener noreferrer" className="play-button">Play Now</a>
               </div>
             </div>
             <div className="glass-card game-card">
-              <div className="card-image">♟️</div>
+              <div className="card-image">🎲</div>
               <div className="card-content">
-                <h3>Strategy Quest</h3>
-                <p>Turn-based strategy game combining tactical decision-making with rich narrative elements.</p>
+                <h3>DungeonCuties</h3>
+                <p>Browser-based roguelike dungeon crawler with kawaii chibi aesthetics and top-down gameplay. Adventure through procedurally generated dungeons!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Web</span>
+                  <span className="game-tag">Roguelike</span>
+                  <span className="game-tag">Action</span>
+                </div>
+                <span className="game-status paused">Paused</span>
+              </div>
+            </div>
+            <div className="glass-card game-card">
+              <div className="card-image">👻</div>
+              <div className="card-content">
+                <h3>Ghost Hunters Agency</h3>
+                <p>Manage your own ghost hunting agency and catch spooky spirits in this Roblox experience. Build your team and tackle supernatural cases!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Roblox</span>
+                  <span className="game-tag">Management</span>
+                  <span className="game-tag">Simulation</span>
+                </div>
                 <span className="game-status in-progress">In Development</span>
-              </div>
-            </div>
-            <div className="glass-card game-card">
-              <div className="card-image">🌌</div>
-              <div className="card-content">
-                <h3>Space Explorer</h3>
-                <p>Explore vast galaxies, discover new worlds, and uncover ancient mysteries in this space adventure.</p>
-                <span className="game-status in-progress">Coming Soon</span>
               </div>
             </div>
           </div>
@@ -119,7 +135,7 @@ export default function Home() {
 
       <footer>
         <div className="container">
-          <p>&copy; 2024 EMTesseract. Crafted with passion and code.</p>
+          <p>&copy; 2025 EMTesseract. Crafted with passion and code.</p>
         </div>
       </footer>
     </>
