@@ -61,34 +61,10 @@ jobs:
               STATUS_TEXT="Deployment Failed"
             fi
             
-            curl -H "Content-Type: application/json" \
-              -d "{
-                \"embeds\": [{
-                  \"title\": \"$EMOJI emtesseract Website Deployment\",
-                  \"description\": \"**Status:** $STATUS_TEXT\",
-                  \"color\": $COLOR,
-                  \"fields\": [
-                    {
-                      \"name\": \"Branch\",
-                      \"value\": \"\`${{ github.ref_name }}\`\",
-                      \"inline\": true
-                    },
-                    {
-                      \"name\": \"Commit\",
-                      \"value\": \"\`${{ github.sha }}\`\",
-                      \"inline\": true
-                    },
-                    {
-                      \"name\": \"Website\",
-                      \"value\": \"[emtesseract.com](https://emtesseract.com)\",
-                      \"inline\": false
-                    }
-                  ],
-                  \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\",
-                  \"footer\": {
-                    \"text\": \"Cloudflare Pages\"
-                  }
-                }]
-              }" \
-              "$DISCORD_WEBHOOK"
+            TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)
+            
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -d "{\"embeds\":[{\"title\":\"$EMOJI emtesseract Website Deployment\",\"description\":\"**Status:** $STATUS_TEXT\",\"color\":$COLOR,\"fields\":[{\"name\":\"Branch\",\"value\":\"\`${{ github.ref_name }}\`\",\"inline\":true},{\"name\":\"Commit\",\"value\":\"\`${{ github.sha }}\`\",\"inline\":true},{\"name\":\"Website\",\"value\":\"[emtesseract.com](https://emtesseract.com)\",\"inline\":false}],\"timestamp\":\"$TIMESTAMP\",\"footer\":{\"text\":\"Cloudflare Pages\"}}]}" \
+              "${DISCORD_WEBHOOK}"
           fi
