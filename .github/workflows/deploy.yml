@@ -44,27 +44,58 @@ jobs:
           echo "🌐 Site: https://emtesseract.pages.dev"
           echo "🎨 Custom domain: https://emtesseract.com"
       
-      - name: Discord Notification
-        if: always()
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: |
-          if [ -n "$DISCORD_WEBHOOK" ]; then
-            STATUS="${{ job.status }}"
-            if [ "$STATUS" == "success" ]; then
-              COLOR="3066993"
-              EMOJI="✅"
-              STATUS_TEXT="Deployment Successful"
-            else
-              COLOR="15158332"
-              EMOJI="❌"
-              STATUS_TEXT="Deployment Failed"
-            fi
-            
-            TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)
-            
-            curl -X POST \
-              -H "Content-Type: application/json" \
-              -d "{\"embeds\":[{\"title\":\"$EMOJI emtesseract Website Deployment\",\"description\":\"**Status:** $STATUS_TEXT\",\"color\":$COLOR,\"fields\":[{\"name\":\"Branch\",\"value\":\"\`${{ github.ref_name }}\`\",\"inline\":true},{\"name\":\"Commit\",\"value\":\"\`${{ github.sha }}\`\",\"inline\":true},{\"name\":\"Website\",\"value\":\"[emtesseract.com](https://emtesseract.com)\",\"inline\":false}],\"timestamp\":\"$TIMESTAMP\",\"footer\":{\"text\":\"Cloudflare Pages\"}}]}" \
-              "${DISCORD_WEBHOOK}"
-          fi
+      - name: Discord Notification (Success)
+        if: success()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          title: "✅ emtesseract Website Deployment"
+          description: "**Status:** Deployment Successful"
+          color: 0x2eb886
+          fields: |
+            [
+              {
+                "name": "Branch",
+                "value": "`${{ github.ref_name }}`",
+                "inline": true
+              },
+              {
+                "name": "Commit",
+                "value": "`${{ github.sha }}`",
+                "inline": true
+              },
+              {
+                "name": "Website",
+                "value": "[emtesseract.com](https://emtesseract.com)"
+              }
+            ]
+          footer: "Cloudflare Pages"
+      
+      - name: Discord Notification (Failure)
+        if: failure()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          title: "❌ emtesseract Website Deployment"
+          description: "**Status:** Deployment Failed"
+          color: 0xe74c3c
+          fields: |
+            [
+              {
+                "name": "Branch",
+                "value": "`${{ github.ref_name }}`",
+                "inline": true
+              },
+              {
+                "name": "Commit",
+                "value": "`${{ github.sha }}`",
+                "inline": true
+              },
+              {
+                "name": "Run",
+                "value": "[View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+              }
+            ]
+          footer: "Cloudflare Pages"
