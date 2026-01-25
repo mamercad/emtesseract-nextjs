@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# emtesseract Marketing Website (Next.js)
 
-## Getting Started
+**Cyberpunk/glitch aesthetic brand kit applied**
 
-First, run the development server:
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Fonts:** JetBrains Mono (monospace) + Inter (sans-serif)
+
+## Features
+
+✅ Animated glitch morph logo (M → tesseract)  
+✅ RGB splitting effects (cyan/magenta)  
+✅ Scan lines overlay  
+✅ Cyberpunk aesthetic  
+✅ Fully responsive  
+✅ Fast & smooth animations  
+✅ Type-safe  
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Vercel (Recommended)
+1. Push to GitHub
+2. Import in Vercel
+3. Deploy automatically
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### GitHub Pages (Static Export)
+```bash
+# Update next.config.js for static export
+npm run build
+# Deploy the `out/` directory
+```
 
-## Learn More
+## Brand Kit
 
-To learn more about Next.js, take a look at the following resources:
+The animated logo component is at: `components/GlitchMorphLogo.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Brand Colors:**
+- Cyan: `#00FFFF`
+- Magenta: `#FF00FF`
+- Black: `#0a0a0a`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Typography:**
+- Headings: JetBrains Mono (monospace)
+- Body: Inter (sans-serif)
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+emtesseract-nextjs/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Homepage
+│   └── globals.css         # Global styles
+├── components/
+│   └── GlitchMorphLogo.tsx # Animated logo
+├── public/                 # Static assets
+└── tailwind.config.ts      # Tailwind configuration
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## URL
+
+- **Local:** http://localhost:3000
+- **Production:** TBD
+
+---
+
+**Created:** 2026-01-25  
+**Family:** Mark, Mary, Mark Jr (Buddy), Jude
