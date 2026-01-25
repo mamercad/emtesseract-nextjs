@@ -1,3 +1,5 @@
+import GlitchMorphLogo from '@/components/GlitchMorphLogo';
+
 export default function Home() {
   return (
     <>
@@ -5,10 +7,7 @@ export default function Home() {
       <section id="hero">
         <div className="container">
           <div className="logo">
-            <div className="tesseract-logo">
-              <div className="tesseract-cube cube-outer"></div>
-              <div className="tesseract-cube cube-inner"></div>
-            </div>
+            <GlitchMorphLogo />
           </div>
           <div className="hero-content">
             <h1>EMTesseract</h1>
