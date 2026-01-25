@@ -82,7 +82,8 @@ export default function Home() {
                   <span className="game-tag">Roguelike</span>
                   <span className="game-tag">Action</span>
                 </div>
-                <span className="game-status paused">Paused</span>
+                <span className="game-status">Available Now</span>
+                <a href="https://mamercad.github.io/DungeonCuties" target="_blank" rel="noopener noreferrer" className="play-button">Play Now</a>
               </div>
             </div>
             <div className="glass-card game-card">
