@@ -59,6 +59,20 @@ export default function Home() {
           </div>
           <div className="games-grid">
             <div className="glass-card game-card">
+              <div className="card-image">👾</div>
+              <div className="card-content">
+                <h3>Weird Stuff</h3>
+                <p>2D pixel-art platformer adventure! Battle creatures, explore mysterious areas, and close the gate. Inspired by classic 8-bit games with single player and local co-op modes!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Web</span>
+                  <span className="game-tag">Platformer</span>
+                  <span className="game-tag">Multiplayer</span>
+                </div>
+                <span className="game-status">Available Now</span>
+                <a href="/weird-stuff" className="play-button">Play Now</a>
+              </div>
+            </div>
+            <div className="glass-card game-card">
               <div className="card-image">🎲</div>
               <div className="card-content">
                 <h3>D&D Campaign Generator</h3>
