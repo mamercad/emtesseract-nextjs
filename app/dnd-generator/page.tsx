@@ -431,74 +431,152 @@ export default function DnDGenerator() {
 
         <style jsx global>{`
         @media print {
-          /* Hide non-printable elements */
-          .print\\:hidden {
-            display: none !important;
-          }
-          
-          /* Page breaks */
-          .page-break {
-            page-break-after: always;
-            page-break-inside: avoid;
-          }
-          
-          /* Force white backgrounds everywhere */
-          body,
-          div,
-          section,
-          .bg-gradient-to-br,
-          .bg-white,
-          .bg-gray-50,
-          .bg-red-50,
-          .bg-green-50,
-          .bg-blue-50,
-          .bg-purple-50,
-          .bg-yellow-50,
-          .bg-pink-50 {
-            background: white !important;
-            background-color: white !important;
-            background-image: none !important;
-          }
-          
-          /* Force black text everywhere */
-          *,
-          h1, h2, h3, h4, h5, h6,
-          p, li, span, div,
-          .text-white,
-          .text-gray-700,
-          .text-gray-800,
-          .text-purple-900,
-          .text-indigo-900 {
-            color: black !important;
-          }
-          
-          /* Keep borders subtle gray */
-          .border,
-          .border-purple-600,
-          .border-indigo-600,
-          .border-gray-200,
-          [class*="border-"] {
-            border-color: #e5e7eb !important;
-          }
-          
-          /* Ability score boxes - keep subtle backgrounds */
-          .bg-red-50 { background: #fee !important; }
-          .bg-green-50 { background: #efe !important; }
-          .bg-blue-50 { background: #eef !important; }
-          .bg-purple-50 { background: #fef !important; }
-          .bg-yellow-50 { background: #ffe !important; }
-          .bg-pink-50 { background: #fee !important; }
-          
-          /* Reset color adjustments */
+          /* Complete CSS reset for print */
           * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            background: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            color: #000 !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
           }
           
-          /* Page margins */
+          /* Page setup */
           @page {
             margin: 0.75in;
             size: letter;
+          }
+          
+          html, body {
+            background: #fff !important;
+            color: #000 !important;
+            font-family: Arial, sans-serif !important;
+            font-size: 12pt !important;
+            line-height: 1.4 !important;
+          }
+          
+          /* Hide screen-only elements */
+          .print\\:hidden,
+          .fixed {
+            display: none !important;
+          }
+          
+          /* Structural spacing */
+          .page-break {
+            page-break-after: always !important;
+            page-break-inside: avoid !important;
+            margin-bottom: 0 !important;
+          }
+          
+          h1 {
+            font-size: 24pt !important;
+            font-weight: bold !important;
+            margin-bottom: 12pt !important;
+            padding-bottom: 6pt !important;
+            border-bottom: 2pt solid #000 !important;
+          }
+          
+          h2 {
+            font-size: 18pt !important;
+            font-weight: bold !important;
+            margin-top: 12pt !important;
+            margin-bottom: 8pt !important;
+            padding-bottom: 4pt !important;
+            border-bottom: 1pt solid #666 !important;
+          }
+          
+          h3 {
+            font-size: 14pt !important;
+            font-weight: bold !important;
+            margin-top: 10pt !important;
+            margin-bottom: 6pt !important;
+          }
+          
+          p {
+            margin-bottom: 6pt !important;
+          }
+          
+          ul, ol {
+            margin-left: 20pt !important;
+            margin-bottom: 8pt !important;
+          }
+          
+          li {
+            margin-bottom: 3pt !important;
+          }
+          
+          /* Restore padding for containers */
+          .bg-white,
+          .rounded-lg,
+          .shadow-xl {
+            padding: 20pt !important;
+            margin-bottom: 12pt !important;
+          }
+          
+          /* Grid layouts */
+          .grid {
+            display: grid !important;
+          }
+          
+          .grid-cols-2 {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12pt !important;
+          }
+          
+          .grid-cols-3 {
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 8pt !important;
+          }
+          
+          /* Ability score boxes */
+          .text-center {
+            text-align: center !important;
+          }
+          
+          .border-red-300,
+          .border-green-300,
+          .border-blue-300,
+          .border-purple-300,
+          .border-yellow-300,
+          .border-pink-300,
+          .border-gray-300 {
+            border: 1pt solid #ccc !important;
+            padding: 6pt !important;
+            background: #f9f9f9 !important;
+          }
+          
+          .text-2xl {
+            font-size: 18pt !important;
+            font-weight: bold !important;
+          }
+          
+          .text-xs {
+            font-size: 9pt !important;
+          }
+          
+          .font-semibold {
+            font-weight: 600 !important;
+          }
+          
+          .font-bold {
+            font-weight: bold !important;
+          }
+          
+          /* Character portrait box */
+          .h-48 {
+            height: 180pt !important;
+            border: 2pt solid #000 !important;
+            padding: 12pt !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          
+          .text-6xl {
+            font-size: 48pt !important;
           }
         }
         `}</style>
