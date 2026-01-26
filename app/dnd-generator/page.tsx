@@ -376,6 +376,13 @@ export default function DnDGenerator() {
           body {
             background: white !important;
           }
+          .bg-gradient-to-br {
+            background: white !important;
+          }
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
         }
       `}</style>
     </div>
