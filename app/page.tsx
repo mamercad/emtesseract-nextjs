@@ -59,6 +59,20 @@ export default function Home() {
           </div>
           <div className="games-grid">
             <div className="glass-card game-card">
+              <div className="card-image">🎲</div>
+              <div className="card-content">
+                <h3>D&D Campaign Generator</h3>
+                <p>AI-powered Dungeons & Dragons content creator! Generate complete campaigns, character sheets, NPCs, quests, and encounters. Print-ready documents for your next adventure!</p>
+                <div className="game-tags">
+                  <span className="game-tag">Web</span>
+                  <span className="game-tag">AI</span>
+                  <span className="game-tag">Tabletop</span>
+                </div>
+                <span className="game-status">Available Now</span>
+                <a href="/dnd-generator" className="play-button">Create Campaign</a>
+              </div>
+            </div>
+            <div className="glass-card game-card">
               <div className="card-image">🎅</div>
               <div className="card-content">
                 <h3>Santa&apos;s Present Bounce</h3>
