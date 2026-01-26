@@ -180,8 +180,24 @@ export default function DnDDemo() {
                 ⚔️ Character Sheet #{index + 1}
               </h2>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div>
+              <div className="grid grid-cols-3 gap-6 mb-6">
+                {/* Character Portrait */}
+                <div className="col-span-1">
+                  <div className="border-4 border-gray-300 rounded-lg p-4 bg-gray-50 h-48 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl mb-2">
+                        {char.class.includes('Fighter') && '⚔️'}
+                        {char.class.includes('Ranger') && '🏹'}
+                        {char.class.includes('Sorcerer') && '⚡'}
+                        {char.class.includes('Cleric') && '✨'}
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Character Portrait</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Character Info */}
+                <div className="col-span-2">
                   <h3 className="text-xl font-bold text-gray-800 mb-3">Character Info</h3>
                   <div className="space-y-2">
                     <p><span className="font-semibold">Name:</span> {char.name}</p>
@@ -190,6 +206,10 @@ export default function DnDDemo() {
                     <p><span className="font-semibold">Background:</span> {char.background}</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div></div>
 
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-3">Ability Scores</h3>
@@ -273,21 +293,74 @@ export default function DnDDemo() {
 
       <style jsx global>{`
         @media print {
+          /* Hide non-printable elements */
           .print\\:hidden {
             display: none !important;
           }
+          
+          /* Page breaks */
           .page-break {
             page-break-after: always;
+            page-break-inside: avoid;
           }
-          body {
+          
+          /* Force white backgrounds everywhere */
+          body,
+          div,
+          section,
+          .bg-gradient-to-br,
+          .bg-white,
+          .bg-gray-50,
+          .bg-red-50,
+          .bg-green-50,
+          .bg-blue-50,
+          .bg-purple-50,
+          .bg-yellow-50,
+          .bg-pink-50 {
             background: white !important;
+            background-color: white !important;
+            background-image: none !important;
           }
-          .bg-gradient-to-br {
-            background: white !important;
+          
+          /* Force black text everywhere */
+          *,
+          h1, h2, h3, h4, h5, h6,
+          p, li, span, div,
+          .text-white,
+          .text-gray-700,
+          .text-gray-800,
+          .text-purple-900,
+          .text-indigo-900 {
+            color: black !important;
           }
+          
+          /* Keep borders subtle gray */
+          .border,
+          .border-purple-600,
+          .border-indigo-600,
+          .border-gray-200,
+          [class*="border-"] {
+            border-color: #e5e7eb !important;
+          }
+          
+          /* Ability score boxes - keep subtle backgrounds */
+          .bg-red-50 { background: #fee !important; }
+          .bg-green-50 { background: #efe !important; }
+          .bg-blue-50 { background: #eef !important; }
+          .bg-purple-50 { background: #fef !important; }
+          .bg-yellow-50 { background: #ffe !important; }
+          .bg-pink-50 { background: #fee !important; }
+          
+          /* Reset color adjustments */
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+          }
+          
+          /* Page margins */
+          @page {
+            margin: 0.75in;
+            size: letter;
           }
         }
       `}</style>
