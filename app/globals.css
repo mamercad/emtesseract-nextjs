@@ -379,6 +379,12 @@ footer {
   font-size: 0.9rem;
 }
 
+.made-with-love {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;

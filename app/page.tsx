@@ -178,6 +178,7 @@ export default function Home() {
       <footer>
         <div className="container">
           <p>&copy; 2026 EMTesseract. Crafted with passion and code.</p>
+          <p className="made-with-love">Made with ❤️ in Michigan</p>
         </div>
       </footer>
     </>
